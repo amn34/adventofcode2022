@@ -21,11 +21,11 @@ fun part1(input: List<String>) {
                 val firstPairRange = firstPair[0].toInt()..firstPair[1].toInt()
                 val secondPairRange = secondPair[0].toInt()..secondPair[1].toInt()
                 if (secondPair[0].toInt() in firstPairRange && secondPair[1].toInt() in firstPairRange) {
-                    1// sumBy
+                    1 // sumBy
                 } else if (firstPair[0].toInt() in secondPairRange && firstPair[1].toInt() in secondPairRange) {
-                    1// sumBy
+                    1 // sumBy
                 } else {
-                    0// sumBy
+                    0 // sumBy
                 }
             }
     println("Part 1: $sum")
@@ -41,11 +41,11 @@ fun part2(input: List<String>) {
                 val firstPairRange = firstPair[0].toInt()..firstPair[1].toInt()
                 val secondPairRange = secondPair[0].toInt()..secondPair[1].toInt()
                 if (secondPair[0].toInt() in firstPairRange || secondPair[1].toInt() in firstPairRange) {
-                    1// sumBy
+                    1 // sumBy
                 } else if (firstPair[0].toInt() in secondPairRange || firstPair[1].toInt() in secondPairRange) {
-                    1// sumBy
+                    1 // sumBy
                 } else {
-                    0// sumBy
+                    0 // sumBy
                 }
             }
     println("Part 2: $sum")
