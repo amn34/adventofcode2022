@@ -29,6 +29,15 @@ fun part1(input: List<String>) {
                 }
             }
     println("Part 1: $sum")
+
+    val sum2 = input.map {
+        it.split(",")
+            .map { pair -> pair.split('-').map { num -> num.toInt() } }
+            .map { (from, to) -> (from..to).toSet() }
+    }
+        .map { (firstPair, secondPair) -> firstPair.containsAll(secondPair) or secondPair.containsAll(firstPair) }
+        .count { it }
+    println("Part 1-2: $sum2")
 }
 
 fun part2(input: List<String>) {
@@ -49,4 +58,12 @@ fun part2(input: List<String>) {
                 }
             }
     println("Part 2: $sum")
+
+    val sum2 = input.map {
+        it.split(",")
+            .map { pair -> pair.split('-').map { num -> num.toInt() } }
+            .map { (from, to) -> (from..to).toSet() }
+    }
+        .map { (firstPair, secondPair) -> firstPair.intersect(secondPair).isNotEmpty() }.count { it }
+    println("Part 2-2: $sum2")
 }
