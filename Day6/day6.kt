@@ -4,15 +4,17 @@ fun main() {
     val fileName = "day6input.txt"
     val input: List<String> = File(fileName).readLines()
 
-    part1(input[0], 4)
-    part1(input[0], 14)
+    solve(input[0], 4)
+    solve(input[0], 14)
 
+    solve2(input[0], 4)
+    solve2(input[0], 14)
 }
 
-fun part1(input: String, len: Int) {
+fun solve(input: String, len: Int) {
     for (i in len until input.length) {
         if (containsDuplicate(input.substring(i-len, i), len)) {
-            println("Part 1 $i")
+            println("Solution $i")
             return
         }
     }
@@ -29,5 +31,22 @@ fun containsDuplicate(input: String, len: Int): Boolean {
         }
     }
     return true
+}
+
+fun solve2(input: String, len: Int) {
+    for (i in 0 until input.length - len) {
+        if (containsDuplicate2(input, i, len)) {
+            println("Solution 2: ${i+len}")
+            return
+        }
+    }
+}
+
+fun containsDuplicate2(input: String, start: Int, len: Int): Boolean {
+    val set = HashSet<Char>()
+    for (i in start until start + len) {
+        set.add(input[i])
+    }
+    return set.size == len
 }
 
