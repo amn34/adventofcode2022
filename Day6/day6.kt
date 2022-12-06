@@ -9,6 +9,9 @@ fun main() {
 
     solve2(input[0], 4)
     solve2(input[0], 14)
+
+    solve3(input[0], 4)
+    solve3(input[0], 14)
 }
 
 fun solve(input: String, len: Int) {
@@ -50,3 +53,8 @@ fun containsDuplicate2(input: String, start: Int, len: Int): Boolean {
     return set.size == len
 }
 
+
+fun solve3(input: String, len: Int) {
+    val index = input.windowed(len).indexOfFirst {it.toSet().size == len} + len
+    println("Solution 3: $index")
+}
